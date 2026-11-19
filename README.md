@@ -14,16 +14,17 @@ engine: alpha-beta search with PVS, a transposition table, killer moves,
 MVV-LVA capture ordering, null-move and late-move-reduction pruning,
 quiescence over captures/promotions/check evasions, and a material +
 piece-square evaluation (Michniewski tables) with a bishop-pair bonus
-(50) and a +10 tempo bonus for the side to move. Tuned v2: practice Elo
-mean 1,367 over 3 trials (1,364 / 1,191 / 1,545), up from the 1,276
-baseline (tempo + bishop-pair change; search and pawn-structure variants
-tested worse and were discarded).
+(60), a +15 tempo bonus for the side to move, and an endgame king
+piece-square weight of 8. Tuned v3 (round 2): practice Elo mean 1,453
+over 3 trials (1,545 / 1,451 / 1,364), up from the 1,367 baseline
+(tempo 15, bishop pair 60, endgame king PST weight 8; king-safety and
+rook-open-file variants tested worse and were discarded).
 Search is deterministic: a fixed node budget per move (80,000 nodes early,
 50,000 mid-game, 25,000 late), never a clock, no unseeded randomness.
 
 ## Run a practice trial
 
-From the kit directory (`~/workspace/makefun/tiny-chess-01-kit/`), start the
+From the kit directory (`~/workspace/makefun/tiny-chess-01-kit-v20/tiny-chess-01-kit/`), start the
 env and point the bot at `main.py`:
 
 ```sh
